@@ -1,4 +1,4 @@
-🏨 Hotel Booking BDD Automation Framework
+#🏨 Hotel Booking BDD Automation Framework
 
 This repository contains an automation testing framework for a Hotel Booking application (Shady Meadows B&B), built using BDD (Behavior Driven Development) principles with Cucumber, Selenium, and Java.
 
