@@ -17,9 +17,9 @@ Browser: Google Chrome
 
 IDE: Eclipse
 
-# 🧪 Test Coverage
+## 🧪 Test Coverage
 
-## ✅ Implemented Scenarios
+### ✅ Implemented Scenarios
 
 Successful room booking flow
 
@@ -29,7 +29,7 @@ Guest detail entry (valid inputs)
 
 Navigation and UI validations
 
-# 🚧 Future Enhancements
+## 🚧 Future Enhancements
 
 Implement remaining unhappy path scenarios
 
