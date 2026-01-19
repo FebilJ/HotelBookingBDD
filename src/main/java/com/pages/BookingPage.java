@@ -2,10 +2,23 @@ package com.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 import com.base.CommonToAllPage;
-import static com.drivers.DriverManager.getDriver;
+
+
+/**
+ * BookingPage - Page Object Model class for handling hotel booking confirmation page
+ * 
+ * This class contains all the elements and actions related to the booking confirmation
+ * of guest details form and final reservation.
+ * 
+ * @author Febil_Jose_Babu
+ * 
+ * Responsibilities:
+ * - Handle guest information form filling
+ * - Process final reservation submission
+ * - Verify booking confirmation messages
+ */
+
 
 public class BookingPage extends CommonToAllPage{
 
@@ -16,7 +29,7 @@ public class BookingPage extends CommonToAllPage{
 		this.driver = driver;
 	}
 	
-	//locators
+	//Page Element locators
 	private By firstReserveNowBtn = By.id("doReservation");
 	private By firstNameTxt = By.xpath("//input[@placeholder='Firstname']");
 	private By lastNameTxt = By.xpath("//input[@placeholder='Lastname']");
@@ -25,11 +38,16 @@ public class BookingPage extends CommonToAllPage{
 	private By secondReserveNowBtn = By.xpath("//button[text()='Reserve Now']");
 	private By confirmationMessage = By.xpath("//h2[text()='Booking Confirmed']");
 	
-	//page actions
+	/**
+    * Reserve selected room and proceed to guest details
+    */
 	public void ClickFirstReserveNow(){
 		scrollAndClick(firstReserveNowBtn);
 	}
 	
+	/**
+    * Complete guest information and finalize booking
+    */
 	public void fillGuestDetailsAndReserve(String firstName, String lastName, String email, String phone) {
 	    enterInput(firstNameTxt, firstName);
 	    enterInput(lastNameTxt, lastName);
@@ -38,13 +56,11 @@ public class BookingPage extends CommonToAllPage{
 	    clickElement(secondReserveNowBtn);
 	}
 	
-	// Method to get confirmation text
+	/**
+     * Get booking confirmation message text
+     */
     public String getConfirmationMessage() {
-        return getText(confirmationMessage);
-    }
-    
-    // Method to check if confirmation is displayed
-    public boolean isConfirmationDisplayed() {
-        return getDriver().findElement(confirmationMessage).isDisplayed();
+        scrollToTop();
+        return waitForVisibility(confirmationMessage).getText();
     }
 }

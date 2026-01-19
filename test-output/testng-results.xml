@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-17T23:50:38 IST" name="Default suite" finished-at="2026-01-17T23:51:36 IST" duration-ms="57505">
+  <suite started-at="2026-01-18T23:13:56 IST" name="Default suite" finished-at="2026-01-18T23:15:47 IST" duration-ms="111073">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.TestRunner.CucumberTestRunner@57a3af25]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-01-17T23:50:38 IST" name="Default test" finished-at="2026-01-17T23:51:36 IST" duration-ms="57505">
+    <test started-at="2026-01-18T23:13:56 IST" name="Default test" finished-at="2026-01-18T23:15:47 IST" duration-ms="111073">
       <class name="StepDefinitions.TestRunner.CucumberTestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:StepDefinitions.TestRunner.CucumberTestRunner@57a3af25]" started-at="2026-01-17T23:50:38 IST" name="setUpClass" finished-at="2026-01-17T23:50:39 IST" duration-ms="1118" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:StepDefinitions.TestRunner.CucumberTestRunner@57a3af25]" started-at="2026-01-18T23:13:56 IST" name="setUpClass" finished-at="2026-01-18T23:13:58 IST" duration-ms="1966" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@45d64d27]]>
+                <![CDATA[org.testng.TestRunner@1aa6e3c0]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.TestRunner.CucumberTestRunner@57a3af25]" started-at="2026-01-17T23:50:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-01-17T23:51:36 IST" duration-ms="56234" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.TestRunner.CucumberTestRunner@57a3af25]" started-at="2026-01-18T23:13:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-01-18T23:15:00 IST" duration-ms="61655" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Booking of double room for 3 days & 2 nights"]]>
+                <![CDATA["Booking of DOUBLE ROOM for 3 days & 2 nights"]]>
               </value>
             </param>
             <param index="1">
@@ -34,10 +34,109 @@
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element is not clickable at point (870, 858)
+  (Session info: chrome=144.0.7559.60)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.2', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [63b176c47b5964d076722a0332e777ec, clickElement {id=f.7F39D13E5E0B5D107BDDF5330213D47C.d.D08C999A500C967C65BB7255A9455F62.e.24}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.60, chrome: {chromedriverVersion: 144.0.7559.31 (18537d992890..., userDataDir: /var/folders/pv/rnj9wk0n13z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57746}, goog:processID: 4176, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:57746/devtoo..., se:cdpVersion: 144.0.7559.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (63b176c47b5964d076722a0332e777ec)] -> xpath: (//a[text()='Book now'])[2]]
+Session ID: 63b176c47b5964d076722a0332e777ec]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (870, 858)
+  (Session info: chrome=144.0.7559.60)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.2', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [63b176c47b5964d076722a0332e777ec, clickElement {id=f.7F39D13E5E0B5D107BDDF5330213D47C.d.D08C999A500C967C65BB7255A9455F62.e.24}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.60, chrome: {chromedriverVersion: 144.0.7559.31 (18537d992890..., userDataDir: /var/folders/pv/rnj9wk0n13z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57746}, goog:processID: 4176, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:57746/devtoo..., se:cdpVersion: 144.0.7559.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (63b176c47b5964d076722a0332e777ec)] -> xpath: (//a[text()='Book now'])[2]]
+Session ID: 63b176c47b5964d076722a0332e777ec
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at com.pages.HomePage.bookDoubleRoom(HomePage.java:160)
+at StepDefinitions.DoubleRoomStep.select_room_type(DoubleRoomStep.java:64)
+at ✽.Select Room Type "DOUBLE"(file:///Users/febiljoseb/eclipse-workspace/HotelBookingBDD/src/test/resources/Features/DoubleRoom.feature:11)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:StepDefinitions.TestRunner.CucumberTestRunner@57a3af25]" started-at="2026-01-17T23:51:36 IST" name="tearDownClass" finished-at="2026-01-17T23:51:36 IST" duration-ms="54" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.TestRunner.CucumberTestRunner@57a3af25]" started-at="2026-01-18T23:15:00 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-01-18T23:15:47 IST" duration-ms="47185" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Booking SUITE ROOM for 3 days and 2 nights with partner"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Book_DoubleRoom"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//h2[text()='Booking Confirmed']"}
+  (Session info: chrome=144.0.7559.60)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.2', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3a084df20de9de6a7fa27b9f36b95b1d, findElement {value=//h2[text()='Booking Confirmed'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.60, chrome: {chromedriverVersion: 144.0.7559.31 (18537d992890..., userDataDir: /var/folders/pv/rnj9wk0n13z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58012}, goog:processID: 4226, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58012/devtoo..., se:cdpVersion: 144.0.7559.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3a084df20de9de6a7fa27b9f36b95b1d]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h2[text()='Booking Confirmed']"}
+  (Session info: chrome=144.0.7559.60)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '26.2', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3a084df20de9de6a7fa27b9f36b95b1d, findElement {value=//h2[text()='Booking Confirmed'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.60, chrome: {chromedriverVersion: 144.0.7559.31 (18537d992890..., userDataDir: /var/folders/pv/rnj9wk0n13z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58012}, goog:processID: 4226, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58012/devtoo..., se:cdpVersion: 144.0.7559.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3a084df20de9de6a7fa27b9f36b95b1d
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+at com.base.CommonToAllPage.getText(CommonToAllPage.java:93)
+at com.pages.BookingPage.getConfirmationMessage(BookingPage.java:44)
+at StepDefinitions.DoubleRoomStep.booking_confirmed_message_is_displayed(DoubleRoomStep.java:103)
+at ✽.Booking Confirmed Message is Displayed(file:///Users/febiljoseb/eclipse-workspace/HotelBookingBDD/src/test/resources/Features/DoubleRoom.feature:24)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:StepDefinitions.TestRunner.CucumberTestRunner@57a3af25]" started-at="2026-01-18T23:15:47 IST" name="tearDownClass" finished-at="2026-01-18T23:15:47 IST" duration-ms="43" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
