@@ -2,7 +2,7 @@
 
 This repository contains an automation testing framework for a Hotel Booking application [Shady Meadows B&B](http://www.automationpractice.pl/index.php), built using BDD (Behavior Driven Development) principles with Cucumber, Selenium, and Java. The framework focuses on validating core booking flows, UI interactions, and documenting edge/unhappy scenarios for future implementation.
 
-# 📌 Tech Stack
+## 📌 Tech Stack
 Language: Java (JDK 21)
 
 Automation Tool: Selenium WebDriver
