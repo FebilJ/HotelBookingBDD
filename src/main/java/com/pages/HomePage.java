@@ -66,9 +66,6 @@ public class HomePage extends CommonToAllPage{
 		clearAndType(date);    
         System.out.println("✅ Check-out date entered: " + date);
 	}
-
-	
-	//+++++++++++++++++++++++++++++++++++++++++++++
 	
 	public void checkAvailability() {
 		scrollAndClick(checkAvailBtn); 
@@ -80,6 +77,28 @@ public class HomePage extends CommonToAllPage{
 //	public void bookDoubleRoom() {
 //		scrollAndClick(doubleBookNowBtn);
 //	}
+	
+	public void bookDoubleRoom() {
+	    try {
+	        // Scroll to Double room section first
+	    	WebElement doubleTxt = getDriver().findElement(By.xpath("//h5[text()='Double']"));
+	    	String roomText = doubleTxt.getText();
+	        
+	    	// Check if it says "Double"
+	        if ("Double".equals(roomText)) {
+	        	scrollAndClick(doubleBookNowBtn);
+	            System.out.println("✅ Double room is displayed");
+	        } else {
+	        	getDriver().quit();
+	            throw new RuntimeException("Double room not available");
+	        }
+	        
+	    }catch (Exception e){
+	        System.out.printf("Exception---->", e);
+	        getDriver().quit();
+	        throw new RuntimeException("Double room not found", e);
+	    }
+	}
 	
 	public void bookSuiteRoom(){
 		scrollAndClick(suiteBookNowBtn);
@@ -121,26 +140,5 @@ public class HomePage extends CommonToAllPage{
 //	    System.out.println(" Please try different dates");
 //	}
 	
-	//===================================================================
-	public void bookDoubleRoom() {
-	    try {
-	        // Scroll to Double room section first
-	    	WebElement doubleTxt = getDriver().findElement(By.xpath("//h5[text()='Double']"));
-	    	String roomText = doubleTxt.getText();
-	        
-	    	// Check if it says "Double"
-	        if ("Double".equals(roomText)) {
-	        	scrollAndClick(doubleBookNowBtn);
-	            System.out.println("✅ Double room is displayed");
-	        } else {
-	        	getDriver().quit();
-	            throw new RuntimeException("Double room not available");
-	        }
-	        
-	    }catch (Exception e){
-	        System.out.printf("Exception---->", e);
-	        getDriver().quit();
-	        throw new RuntimeException("Double room not found", e);
-	    }
-	}
+	//==================================================================
 }
