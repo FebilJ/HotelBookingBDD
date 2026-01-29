@@ -5,7 +5,9 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -42,6 +44,11 @@ public class CommonToAllPage {
 		getDriver().get(PropertiesReader.readKey("url"));
 	}
 	
+	
+	/* 
+	 * -------------------Waits Methods----------------------
+	*/
+	
 	//explicit wait
 	public  WebDriverWait getWait(WebDriver driver){
         return new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -56,11 +63,36 @@ public class CommonToAllPage {
         }
     }
 	
+	//Wait for element, scroll to center, and returns it for Dates
+	protected WebElement waitAndScroll(By locator) throws InterruptedException {
+	    WebElement element = new WebDriverWait(getDriver(), Duration.ofSeconds(10))
+	        .until(ExpectedConditions.elementToBeClickable(locator));
+	    
+	    ((JavascriptExecutor) getDriver()).executeScript(
+	        "arguments[0].scrollIntoView({block: 'center'});", element);
+	    
+	    Thread.sleep(500);
+	    return element;
+	}
+	
 	//Clicks on an element after waiting until it becomes clickable
 	public void clickWithWait(By by) {
 	    WebElement element = new WebDriverWait(getDriver(), Duration.ofSeconds(10))
 	        .until(ExpectedConditions.elementToBeClickable(by));
 	    element.click();
+	}
+	
+	/* 
+	 * -------------------Clear Date TextBox----------------------
+	*/
+	
+	//Clear field using COMMAND+A Delete and type text
+	protected  void clearAndType(String text) {
+	    new Actions(getDriver())
+	        .keyDown(Keys.COMMAND).sendKeys("a").keyUp(Keys.COMMAND)
+	        .sendKeys(Keys.DELETE)
+	        .sendKeys(text)
+	        .perform();
 	}
 	
     //Scroll to top of page
@@ -79,6 +111,17 @@ public class CommonToAllPage {
 	    
 	    // Then click using JavaScript
 	    ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();", element);
+	}
+	
+	/**
+	 * Scrolls element into view with center alignment
+	 */
+	public void scrollToView(By by) {
+	    WebElement element = getDriver().findElement(by);
+	    ((JavascriptExecutor) getDriver()).executeScript(
+	        "arguments[0].scrollIntoView({block: 'center'});", 
+	        element
+	    );
 	}
 	
 	//Waits until the element is visible on the page

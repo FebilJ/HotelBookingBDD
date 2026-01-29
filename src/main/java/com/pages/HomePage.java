@@ -1,9 +1,19 @@
 package com.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.base.CommonToAllPage;
 
 
@@ -37,36 +47,28 @@ public class HomePage extends CommonToAllPage{
 	private By checkAvailBtn = By.xpath("//button[text()='Check Availability']");
 	private By singleBookNowBtn = By.xpath("(//a[text()='Book now'])[1]");
 	private By doubleBookNowBtn = By.xpath("(//a[text()='Book now'])[2]");
+	private By doubleTxt = By.xpath("//h5[text()='Double']");
 	private By suiteBookNowBtn = By.xpath("(//a[text()='Book now'])[3]");
 	
 	//page actions
-	//Enter CheckIn Date Method using Actions class.
-	public void enterCheckInDate(String date) {
-		scrollAndClick(checkIn);
-		
-		new Actions(driver)
-        	.keyDown(Keys.COMMAND)
-	        .sendKeys("a")
-	        .keyUp(Keys.COMMAND)
-	        .sendKeys(Keys.BACK_SPACE)
-	        .sendKeys(date)
-	        .build()
-	        .perform();
+	//Enter CheckIn Date Method
+	public void enterCheckInDate(String date) throws Exception {	  
+		//Wait & Scroll for element to be ready & Click
+		waitAndScroll(checkIn).click();
+		clearAndType(date);
+        System.out.println("✅ Check-in date entered: " + date);
 	}
 	
-	//Enter Check-Out Date Method using Actions class.
-	public void enterCheckOutDate(String date) {
-		scrollAndClick(checkOut);
-		
-	    new Actions(driver)
-	        .keyDown(Keys.COMMAND)
-	        .sendKeys("a")
-	        .keyUp(Keys.COMMAND)
-	        .sendKeys(Keys.BACK_SPACE)
-	        .sendKeys(date)
-	        .build()
-	        .perform();
+	//Enter CheckOut Date Method
+	public void enterCheckOutDate(String date) throws Exception {
+        // Wait & Scroll for element to be ready & Click
+		waitAndScroll(checkOut).click();
+		clearAndType(date);    
+        System.out.println("✅ Check-out date entered: " + date);
 	}
+
+	
+	//+++++++++++++++++++++++++++++++++++++++++++++
 	
 	public void checkAvailability() {
 		scrollAndClick(checkAvailBtn); 
@@ -75,90 +77,70 @@ public class HomePage extends CommonToAllPage{
 	public void bookSingleRoom() {
 		scrollAndClick(singleBookNowBtn);
 	}
-	public void bookDoubleRoom() {
-		scrollAndClick(doubleBookNowBtn);
-	}
+//	public void bookDoubleRoom() {
+//		scrollAndClick(doubleBookNowBtn);
+//	}
 	
 	public void bookSuiteRoom(){
 		scrollAndClick(suiteBookNowBtn);
 	}
 	
-	
 	/* Future enhancement: Implement edge case handling for room booking
-	public void bookDoubleRoom() {
-		
-		//old one
-//		try {
-//            // Try to click double room button
-//            clickElement(doubleBookNowBtn);
-//        } catch (StaleElementReferenceException e) {
-//            // If element is stale, re-find and retry
-//            System.out.println("Double room button was stale, re-finding...");
-//            WebElement freshDoubleBtn = getDriver().findElement(doubleBookNowBtn);
-//            freshDoubleBtn.click();
-//        }
-		
-		//new one
-		try {
-	        // Try to click double room button
-			// Check if "Double" room exists before booking
-	        WebElement doubleRoomElement = getDriver().findElement(doubleRoomTitle);
-	        // If we reach here, room exists - proceed to book
-	        
-	        // Simple if statement to verify room type
-	        if (doubleRoomElement.isDisplayed()) {
-	            // Room exists, click book button
-	            clickElement(doubleBookNowBtn);
-	            System.out.println("Double room booked successfully");
-	        } else {
-	            System.out.println("Double room not displayed");
-	            handleRoomNotAvailable("Double");
-	        }
-	        
-	    } catch (StaleElementReferenceException e) {
-	        // If element is stale, re-find and retry
-	        System.out.println("Double room button was stale, re-finding...");
-	        WebElement freshDoubleBtn = getDriver().findElement(doubleBookNowBtn);
-	        freshDoubleBtn.click();
-	        
-	    } catch (org.openqa.selenium.NoSuchElementException e) {
-	        // If element not found, room is not available
-	        System.out.println(" No double room available for selected dates");
-	        System.out.println("Please change dates and try again");
-	        getDriver().quit(); // Close browser
-	        throw new RuntimeException("Double room not available"); // Stop test
-	    }
-	}
 	*/
 //	public void bookDoubleRoom() {
 //	    try {
-//	    	WebElement doubleRoomElement = getDriver().findElement(doubleRoomTitle);
-//            String roomText = doubleRoomElement.getText();
-//            
-//            if ("Double".equals(roomText)) {
-//                // Step 2: Room exists, now try to book
-//                clickElement(doubleBookNowBtn);
-//                System.out.println("Double room booking initiated");
-//            } else {
-//                System.out.println("Room type mismatch: " + roomText);
-//                handleRoomNotAvailable("Double");
-//            }           
-//	    } catch (StaleElementReferenceException e) {
-//	        // Handle stale book button
-//	        System.out.println("Double room button was stale, re-finding...");
-//	        WebElement freshDoubleBtn = getDriver().findElement(doubleBookNowBtn);
-//	        freshDoubleBtn.click();
+//	        // Check if "Double" room is displayed on the page
+//	        By doubleRoomTitle = By.xpath("//h5[text()='Double']");
+//	        WebElement doubleRoomElement = getDriver().findElement(doubleRoomTitle);
+//	        
+//	        if (doubleRoomElement.isDisplayed()) {
+//	            // Double room is available - click the button
+//	            clickElement(doubleBookNowBtn);
+//	            System.out.println(" Double room booked successfully");
+//	        } else {
+//	            // Double room exists but not displayed (unlikely scenario)
+//	            System.out.println("️ Double room element found but not visible");
+//	            handleRoomNotAvailable("Double");
+//	        }
 //	        
 //	    } catch (org.openqa.selenium.NoSuchElementException e) {
-//	        // Double room title element not found
-//	        System.out.println("No double room available for selected dates");
+//	        // Double room not found on the page
+//	        System.out.println(" No Double room available for selected dates");
 //	        handleRoomNotAvailable("Double");
+//	        
+//	    } catch (StaleElementReferenceException e) {
+//	        // Handle stale element - retry once
+//	        System.out.println(" Double room button stale, retrying...");
+//	        WebElement freshBtn = getDriver().findElement(doubleBookNowBtn);
+//	        freshBtn.click();
 //	    }
 //	}
-
+//
 //	private void handleRoomNotAvailable(String roomType) {
-//	    System.out.println("💡 Please change dates and try again");
-//	    getDriver().quit();
-//	    throw new RuntimeException(roomType + " room not available");
+//	    System.out.println(" " + roomType + " room is not available");
+//	    System.out.println(" Please try different dates");
 //	}
+	
+	//===================================================================
+	public void bookDoubleRoom() {
+	    try {
+	        // Scroll to Double room section first
+	    	WebElement doubleTxt = getDriver().findElement(By.xpath("//h5[text()='Double']"));
+	    	String roomText = doubleTxt.getText();
+	        
+	    	// Check if it says "Double"
+	        if ("Double".equals(roomText)) {
+	        	scrollAndClick(doubleBookNowBtn);
+	            System.out.println("✅ Double room is displayed");
+	        } else {
+	        	getDriver().quit();
+	            throw new RuntimeException("Double room not available");
+	        }
+	        
+	    }catch (Exception e){
+	        System.out.printf("Exception---->", e);
+	        getDriver().quit();
+	        throw new RuntimeException("Double room not found", e);
+	    }
+	}
 }

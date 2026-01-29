@@ -47,12 +47,14 @@ public class HotelBookingSteps extends CommonToAllPage{
      * Supports multiple natural language patterns for flexibility
      * 
      * @param checkInDate Check-in date in "DD/MM/YYYY" format
+     * @throws Exception 
+     * @throws InterruptedException 
      */
     @When("User clicks Check-in date as {string}")
     @When("User selects check-in date as {string}")
     @When("User chooses check-in date as {string}")
     @When("User Clicks check-in date as {string}")
-    public void process_check_in_date(String checkInDate) {
+    public void process_check_in_date(String checkInDate) throws Exception{
         homePage.enterCheckInDate(checkInDate);   
     }
     
@@ -61,12 +63,13 @@ public class HotelBookingSteps extends CommonToAllPage{
     * Provides flexibility for different team member writing styles
     * 
     * @param checkOutDate Check-out date in "DD/MM/YYYY" format
+     * @throws Exception 
     */
     @And("User clicks Check-Out date as {string}")
     @And("User selects check-out date as {string}")
     @And("User chooses check-out date as {string}")
     @And("User Clicks check-out date as {string}")
-    public void process_check_out_date(String checkOutDate) {
+    public void process_check_out_date(String checkOutDate) throws Exception {
         homePage.enterCheckOutDate(checkOutDate);
     }
     

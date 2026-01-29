@@ -11,7 +11,7 @@ import com.drivers.DriverManager;
  * 
  * This class contains @Before and @After hooks which are executed
  * before and after every scenario in the feature file.
- * 
+ * matio
  * Responsibilities:
  * - Initialize WebDriver before the test starts
  * - Close WebDriver after the test ends
@@ -29,7 +29,7 @@ public class ApplicationHooks {
     public void setUp(){
         DriverManager.init();
     }
-	
+	/*
 	 //Closes the browser and releases resources.
     @After
     public void tearDown(){
@@ -39,5 +39,5 @@ public class ApplicationHooks {
                 e.printStackTrace();
            }
         DriverManager.down();
-    }
+    }*/
 }

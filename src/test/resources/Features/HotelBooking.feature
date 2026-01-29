@@ -8,8 +8,8 @@ Background:
 
 # Task 1: Personal booking Scenario for Double Room
 Scenario: Booking of DOUBLE ROOM for 3 days & 2 nights
-	When User clicks Check-in date as "16/08/2026"
-	And User clicks Check-Out date as "18/08/2026"
+	When User clicks Check-in date as "16/10/2026"
+	And User clicks Check-Out date as "18/10/2026"
 	And User clicks Check Availability button
 	Then Select Room Type "DOUBLE"
 	And User clicks the Reserve Now button
